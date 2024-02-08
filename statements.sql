@@ -103,15 +103,47 @@ UPDATE usuarios SET id_categoria = 6 WHERE id_usuario IN (30, 32, 34, 36, 38,40)
 
 -- PASO 4
 -- Tu código aquí
+CREATE TABLE sql2.usuarios_categorias (
+    id_usuario_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_categoria INT
+   CREATE TABLE sql2.usuarios_categorias (
+    id_usuario_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_categoria INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_categoria) REFERENCES usuarios(id_categoria)
+   
+);
+);
 
 /* Relación tipo N:M */
 -- PASO 1
 -- Tu código aquí
 
-
+CREATE TABLE sql2.usuarios_categorias (
+    id_usuario_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    id_categoria INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_categoria) REFERENCES usuarios(id_categoria)
+   
+);SELECT * FROM sql2.usuarios;
 -- PASO 2
 -- Tu código aquí
-
+INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
+(1, 1), (1, 2), (1, 3),
+(2, 4), (2, 5), 
+(3, 6), (3, 7),
+(4, 8), (4, 9), (4, 10),
+(5, 11), (5, 12), (5, 13), (5, 14), (5, 15), (5, 16),
+(6, 17), (6, 18), (6, 19), (6, 20), (6, 21), (6, 22), (6, 23), (6, 24),
+(7, 25), (7, 26), (7, 27), (7, 28), (7, 29), (7, 30), (7, 31), (7, 32),
+(8, 33), (8, 34), (8, 35), (8, 36), (8, 37), (8, 38), (8, 39), (8, 40);
 
 -- PASO 3
 -- Tu código aquí
+
+
+SELECT u.id_usuario, u.nombre, u.apellido, u.email, u.edad, r.nombre_rol, c.nombre_categoria
+FROM sql2.usuarios u
